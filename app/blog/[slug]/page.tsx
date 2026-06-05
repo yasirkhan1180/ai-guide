@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CategoryTag from "../../components/CategoryTag";
-import { getPostBySlug, getAllPosts, formatDate } from "../../data";
+import { getPostBySlug, getAllPosts, formatDate } from "../data";
 
 interface Props {
   params: { slug: string };
