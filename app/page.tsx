@@ -1,18 +1,11 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticleCard from "./components/ArticleCard";
-<<<<<<< HEAD
-import { getAllPosts } from "./posts-data";
-export const revalidate = 0;
-export default function HomePage() {
-  const posts = getAllPosts();
-  console.log("POSTS_ARRAY_CONTENTS:", JSON.stringify(posts));
-=======
-import { getAllArticles } from "@/sanity/lib/fetch";
+import { getAllArticles } from "@/sanity/lib/fetch"; // Updated import
 
 export default async function HomePage() {
+  // Fetch data asynchronously from Sanity
   const posts = await getAllArticles();
->>>>>>> b5e65ae9c911b101bd6af5136c78ed1ffd80229c
 
   return (
     <>
@@ -21,7 +14,6 @@ export default async function HomePage() {
       <main className="pt-14">
         {/* ── Hero ─────────────────────────────────────────── */}
         <section className="max-w-site mx-auto px-6 md:px-12 pt-24 pb-22 border-b border-border">
-          {/* Overline */}
           <p
             className="font-sans text-[0.65rem] font-600 uppercase tracking-widest text-accent mb-8 opacity-0-init animate-fade-up"
             style={{ animationFillMode: "forwards", letterSpacing: "0.2em" }}
@@ -29,7 +21,6 @@ export default async function HomePage() {
             Est. 2024 — Independent AI Writing
           </p>
 
-          {/* Massive display headline */}
           <h1
             className="font-sans font-700 text-display-xl text-ink leading-none tracking-tighter mb-10 opacity-0-init animate-fade-up animate-delay-100 max-w-5xl"
             style={{ animationFillMode: "forwards" }}
@@ -41,7 +32,6 @@ export default async function HomePage() {
             intelligence.
           </h1>
 
-          {/* Sub-headline */}
           <div
             className="max-w-xl opacity-0-init animate-fade-up animate-delay-200"
             style={{ animationFillMode: "forwards" }}
@@ -53,7 +43,6 @@ export default async function HomePage() {
             </p>
           </div>
 
-          {/* Stats row */}
           <div
             className="flex flex-wrap items-center gap-10 mt-14 opacity-0-init animate-fade-up animate-delay-300"
             style={{ animationFillMode: "forwards" }}
@@ -77,7 +66,6 @@ export default async function HomePage() {
 
         {/* ── Article Feed ─────────────────────────────────── */}
         <section className="max-w-site mx-auto px-6 md:px-12">
-          {/* Feed header */}
           <div
             className="flex items-center justify-between py-8 opacity-0-init animate-fade-up animate-delay-200"
             style={{ animationFillMode: "forwards" }}
@@ -90,14 +78,12 @@ export default async function HomePage() {
             </span>
           </div>
 
-          {/* Single-column feed, constrained to article width */}
           <div className="max-w-article">
-            {posts.map((post, i) => (
-              <ArticleCard key={post._id} post={post} index={i} />
+            {posts.map((post: any, i: number) => (
+              <ArticleCard key={post.slug} post={post} index={i} />
             ))}
           </div>
 
-          {/* End of feed marker */}
           <div className="max-w-article border-t border-border pt-10 pb-4">
             <p className="font-sans text-xs text-muted text-center uppercase tracking-widest" style={{ letterSpacing: "0.15em" }}>
               End of feed
