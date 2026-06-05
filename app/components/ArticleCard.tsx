@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Post, formatDate } from "../data";
+import { formatDate } from "../data";
+import { Post } from "../types"; // Adjust this path if types.ts is in a different folder
 import CategoryTag from "./CategoryTag";
 
 interface ArticleCardProps {
