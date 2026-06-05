@@ -27,6 +27,9 @@ export const article = defineType({
       type: "string",
       options: {
         list: [
+          { title: "Fundamentals", value: "Fundamentals" },
+          { title: "Models", value: "Models" },
+          { title: "Practice", value: "Practice" },
           { title: "LLMs", value: "llms" },
           { title: "Agents", value: "agents" },
           { title: "Prompt Engineering", value: "prompt-engineering" },
@@ -34,7 +37,7 @@ export const article = defineType({
           { title: "AI Tools", value: "ai-tools" },
           { title: "Research", value: "research" },
         ],
-        layout: "radio",
+        layout: "dropdown",
       },
       validation: (Rule) => Rule.required(),
     }),
@@ -44,6 +47,13 @@ export const article = defineType({
       type: "text",
       rows: 3,
       validation: (Rule) => Rule.required().min(20).max(300),
+    }),
+    defineField({
+      name: "author",
+      title: "Author",
+      type: "string",
+      initialValue: "AI Guide",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "mainContent",
@@ -123,16 +133,17 @@ export const article = defineType({
             },
           ],
           preview: {
-          select: { language: "language", code: "code" },
-          prepare(selection: { language?: string; code?: string }) {
-            return {
-              title: `Code: ${selection.language ?? "unknown"}`,
-              subtitle: selection.code?.slice(0, 60),
-            };
-          },
+            select: { language: "language", code: "code" },
+            prepare(selection: { language?: string; code?: string }) {
+              return {
+                title: `Code: ${selection.language ?? "unknown"}`,
+                subtitle: selection.code?.slice(0, 60),
+              };
+            },
           },
         },
       ],
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: "readTime",
@@ -145,12 +156,14 @@ export const article = defineType({
       title: "Published At",
       type: "datetime",
       initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
       title: "title",
       subtitle: "categoryTag",
+      author: "author",
     },
   },
   orderings: [
