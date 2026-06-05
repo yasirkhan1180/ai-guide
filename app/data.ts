@@ -1,5 +1,5 @@
 import { Post } from "./types";
-
+// Triggering build
 export const posts: Post[] = [
   {
     slug: "the-attention-mechanism-explained",
