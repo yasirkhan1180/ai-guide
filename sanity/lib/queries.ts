@@ -28,5 +28,7 @@ export const ARTICLE_BY_SLUG_QUERY = groq`
 `;
 
 export const ALL_SLUGS_QUERY = groq`
-  *[_type == "article" && defined(publishedAt)] { "slug": slug.current }
+  *[_type == "article" && defined(publishedAt)] {
+    "slug": slug.current
+  }
 `;
