@@ -1,11 +1,6 @@
 import Link from "next/link";
-<<<<<<< HEAD
-import { formatDate } from "../posts-data";
-import { Post } from "../types";
-=======
 import { formatDate } from "@/sanity/lib/utils";
 import { Article } from "@/sanity/lib/fetch";
->>>>>>> b5e65ae9c911b101bd6af5136c78ed1ffd80229c
 import CategoryTag from "./CategoryTag";
 
 interface ArticleCardProps {
@@ -33,7 +28,7 @@ export default function ArticleCard({ post, index }: ArticleCardProps) {
           {post.title}
         </h2>
 
-        {/* Excerpt — capped to 2 lines via line-clamp */}
+        {/* Excerpt */}
         <p className="font-serif text-[0.9375rem] text-ink-soft leading-relaxed line-clamp-2 mb-5">
           {post.excerpt}
         </p>
