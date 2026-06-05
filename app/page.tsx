@@ -26,7 +26,7 @@ export default function HomePage() {
             className="font-sans font-700 text-display-xl text-ink leading-none tracking-tighter mb-10 opacity-0-init animate-fade-up animate-delay-100 max-w-5xl"
             style={{ animationFillMode: "forwards" }}
           >
-            testing web update
+            UNDERSTANDING
             <br />
             <span className="text-accent">artificial</span>
             <br />
