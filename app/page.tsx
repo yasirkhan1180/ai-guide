@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticleCard from "./components/ArticleCard";
-import { getAllPosts } from "./data";
-
+import { getAllPosts } from "./posts-data";
+export const revalidate = 0;
 export default function HomePage() {
   const posts = getAllPosts();
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate } from "../data";
+import { formatDate } from "../posts-data";
 import { Post } from "../types";
 import CategoryTag from "./CategoryTag";
 
