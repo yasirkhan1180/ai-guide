@@ -5,7 +5,7 @@ import { getAllPosts } from "./posts-data";
 export const revalidate = 0;
 export default function HomePage() {
   const posts = getAllPosts();
-  console.log("Total posts found:", posts.length); // ADD THIS LINE
+  console.log("POSTS_ARRAY_CONTENTS:", JSON.stringify(posts));
 
   return (
     <>
