@@ -1,10 +1,15 @@
 import Link from "next/link";
+<<<<<<< HEAD
 import { formatDate } from "../posts-data";
 import { Post } from "../types";
+=======
+import { formatDate } from "@/sanity/lib/utils";
+import { Article } from "@/sanity/lib/fetch";
+>>>>>>> b5e65ae9c911b101bd6af5136c78ed1ffd80229c
 import CategoryTag from "./CategoryTag";
 
 interface ArticleCardProps {
-  post: Post;
+  post: Article;
   index: number;
 }
 
@@ -17,7 +22,7 @@ export default function ArticleCard({ post, index }: ArticleCardProps) {
       <Link href={`/blog/${post.slug}`} className="block">
         {/* Top meta row */}
         <div className="flex items-center gap-3 mb-4">
-          <CategoryTag category={post.category} />
+          <CategoryTag category={post.categoryTag} />
           <span className="font-sans text-[0.65rem] text-muted uppercase tracking-widest" style={{ letterSpacing: "0.1em" }}>
             {post.readTime} min read
           </span>
@@ -36,7 +41,7 @@ export default function ArticleCard({ post, index }: ArticleCardProps) {
         {/* Bottom row */}
         <div className="flex items-center justify-between">
           <span className="font-sans text-xs text-muted">
-            {formatDate(post.date)} · {post.author}
+            {formatDate(post.publishedAt)} · AI Guide
           </span>
           <span className="font-sans text-xs font-500 text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center gap-1">
             Read article

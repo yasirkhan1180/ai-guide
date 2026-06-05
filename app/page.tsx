@@ -1,11 +1,18 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticleCard from "./components/ArticleCard";
+<<<<<<< HEAD
 import { getAllPosts } from "./posts-data";
 export const revalidate = 0;
 export default function HomePage() {
   const posts = getAllPosts();
   console.log("POSTS_ARRAY_CONTENTS:", JSON.stringify(posts));
+=======
+import { getAllArticles } from "@/sanity/lib/fetch";
+
+export default async function HomePage() {
+  const posts = await getAllArticles();
+>>>>>>> b5e65ae9c911b101bd6af5136c78ed1ffd80229c
 
   return (
     <>
@@ -86,7 +93,7 @@ export default function HomePage() {
           {/* Single-column feed, constrained to article width */}
           <div className="max-w-article">
             {posts.map((post, i) => (
-              <ArticleCard key={post.slug} post={post} index={i} />
+              <ArticleCard key={post._id} post={post} index={i} />
             ))}
           </div>
 
