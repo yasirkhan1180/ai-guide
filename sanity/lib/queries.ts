@@ -20,10 +20,16 @@ export const ARTICLE_BY_SLUG_QUERY = groq`
     "slug": slug.current,
     categoryTag,
     excerpt,
-    mainContent,
     readTime,
     publishedAt,
-    author
+    author,
+    mainContent[] {
+      ...,
+      _type == "image" => {
+        ...,
+        "url": asset->url
+      }
+    }
   }
 `;
 
