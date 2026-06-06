@@ -1,0 +1,1 @@
+export const ARTICLE_BY_SLUG_QUERY = '*[_type == "article" && slug.current == $slug && defined(publishedAt)][0]{_id, title, "slug": slug.current, categoryTag, excerpt, readTime, publishedAt, author, mainContent}';
