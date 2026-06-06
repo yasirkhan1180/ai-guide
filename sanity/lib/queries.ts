@@ -23,13 +23,7 @@ export const ARTICLE_BY_SLUG_QUERY = groq`
     readTime,
     publishedAt,
     author,
-    mainContent[] {
-      ...,
-      _type == "image" => {
-        ...,
-        "url": asset->url
-      }
-    }
+    mainContent
   }
 `;
 
