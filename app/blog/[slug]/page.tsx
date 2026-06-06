@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getArticleBySlug, getAllSlugs } from "@/sanity/lib/fetch";
+import { getArticleBySlug, getAllSlugs, Article } from "@/sanity/lib/fetch";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "../../components/Header";
@@ -12,9 +12,10 @@ interface Props {
   params: { slug: string };
 }
 
+// Fixed: Explicitly typed 'item' to satisfy TypeScript strict mode
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
-  return slugs.map((item) => ({
+  return slugs.map((item: { slug: string }) => ({
     slug: item.slug,
   }));
 }
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ArticlePage({ params }: Props) {
-  const article = await getArticleBySlug(params.slug);
+  const article: Article = await getArticleBySlug(params.slug);
   if (!article) notFound();
 
   return (
